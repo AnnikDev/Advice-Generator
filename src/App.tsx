@@ -51,13 +51,18 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  width: 54rem;
+  max-width: 54rem;
   border-radius: 1.5rem;
   box-shadow: 3rem 5rem 8rem 0 rgba(0, 0, 0, 0.1);
   background-color: #313a48;
   text-align: center;
   padding: 4.8rem 4.8rem 7.2rem;
   position: relative;
+  margin: 12rem 1.6rem;
+
+  @media screen and (max-width: 500px) {
+    padding: 4rem 4rem 7rem;
+  }
 `;
 
 const AdNum = styled.p`
@@ -66,8 +71,13 @@ const AdNum = styled.p`
   letter-spacing: 0.4rem;
   color: #53ffaa;
 
+  @media screen and (max-width: 500px) {
+    font-size: 1.1rem;
+  }
+
   .divider {
     margin-bottom: 4.7rem;
+    width: 100%;
   }
 `;
 
@@ -77,6 +87,10 @@ const Advice = styled.p`
   font-weight: 800;
   letter-spacing: -0.03rem;
   color: #cee3e9;
+
+  @media screen and (max-width: 500px) {
+    font-size: 2.4rem;
+  }
 `;
 
 const Dice = styled.button`

@@ -61,7 +61,7 @@ const Dice = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(19.2rem) translateY(2.5rem);
+  transform: translate(19.2rem, 2.5rem);
   cursor: pointer;
 
   &&:hover {

@@ -7,8 +7,16 @@ function App() {
     <>
       <Container>
         <AdNum>
-          ADVICE <span>#117</span>
+          ADVICE <span className="AdCode">#117</span>
         </AdNum>
+        <Advice>
+          “It is easy to sit up and take notice, what's difficult is getting up
+          and taking action.”
+        </Advice>
+        <img src="/images/pattern-divider-desktop.svg" alt="" />
+        <Dice>
+          <img src="/images/icon-dice.svg" alt="" />
+        </Dice>
       </Container>
     </>
   );
@@ -31,4 +39,27 @@ const AdNum = styled.p`
   font-weight: 800;
   letter-spacing: 0.4rem;
   color: #53ffaa;
+
+  .AdCode {
+    font-size: 1.3rem;
+  }
+`;
+
+const Advice = styled.p`
+  margin: 2.4rem 0 4rem;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03rem;
+  color: #cee3e9;
+`;
+
+const Dice = styled.button`
+  width: 6.4rem;
+  height: 6.4rem;
+  background-color: #53ffaa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(19.2rem) translateY(2.5rem);
 `;

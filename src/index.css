@@ -1,0 +1,17 @@
+body {
+  height: 100vh;
+  background-color: #202733;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  border-style: none;
+  list-style: none;
+}

@@ -63,6 +63,10 @@ const Container = styled.div`
   @media screen and (max-width: 500px) {
     padding: 4rem 4rem 7rem;
   }
+
+  .divider {
+    width: 100%;
+  }
 `;
 
 const AdNum = styled.p`
@@ -73,11 +77,6 @@ const AdNum = styled.p`
 
   @media screen and (max-width: 500px) {
     font-size: 1.1rem;
-  }
-
-  .divider {
-    margin-bottom: 4.7rem;
-    width: 100%;
   }
 `;
 

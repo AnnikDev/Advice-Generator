@@ -62,4 +62,10 @@ const Dice = styled.button`
   align-items: center;
   justify-content: center;
   transform: translateX(19.2rem) translateY(2.5rem);
+  cursor: pointer;
+
+  &&:hover {
+    box-shadow: 0 0 4rem 0 #53ffaa;
+    background-color: #53ffaa;
+  }
 `;

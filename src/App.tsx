@@ -11,6 +11,8 @@ type TAdvice = {
 
 function App() {
   const [advice, setAdvice] = useState<TAdvice>();
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,17 +28,19 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [count]);
 
   return (
     <>
       <Container>
-        <AdNum>
-          ADVICE #<span className="AdCode">{advice?.slip.id}</span>
-        </AdNum>
+        <AdNum>ADVICE #{advice?.slip.id}</AdNum>
         <Advice>"{advice?.slip.advice}"</Advice>
-        <img src="/images/pattern-divider-desktop.svg" alt="" />
-        <Dice>
+        <img
+          className="divider"
+          src="/images/pattern-divider-desktop.svg"
+          alt=""
+        />
+        <Dice onClick={() => setCount((prev) => prev + 1)}>
           <img src="/images/icon-dice.svg" alt="" />
         </Dice>
       </Container>
@@ -48,12 +52,12 @@ export default App;
 
 const Container = styled.div`
   width: 54rem;
-  height: 32rem;
   border-radius: 1.5rem;
   box-shadow: 3rem 5rem 8rem 0 rgba(0, 0, 0, 0.1);
   background-color: #313a48;
   text-align: center;
   padding: 4.8rem 4.8rem 7.2rem;
+  position: relative;
 `;
 
 const AdNum = styled.p`
@@ -62,8 +66,8 @@ const AdNum = styled.p`
   letter-spacing: 0.4rem;
   color: #53ffaa;
 
-  .AdCode {
-    font-size: 1.3rem;
+  .divider {
+    margin-bottom: 4.7rem;
   }
 `;
 
@@ -76,14 +80,13 @@ const Advice = styled.p`
 `;
 
 const Dice = styled.button`
-  width: 6.4rem;
-  height: 6.4rem;
+  padding: 2rem;
   background-color: #53ffaa;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(19.2rem, 2.5rem);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
   cursor: pointer;
 
   &&:hover {

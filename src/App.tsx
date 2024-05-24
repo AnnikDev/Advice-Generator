@@ -1,18 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
 
+type TAdvice = {
+  slip: {
+    id: number;
+    advice: string;
+  };
+};
+
 function App() {
+  const [advice, setAdvice] = useState<TAdvice>();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const respo = await fetch("https://api.adviceslip.com/advice");
+        const data = await respo.json();
+
+        if (!data) throw new Error("something went wrong");
+
+        setAdvice(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Container>
         <AdNum>
-          ADVICE <span className="AdCode">#117</span>
+          ADVICE #<span className="AdCode">{advice?.slip.id}</span>
         </AdNum>
-        <Advice>
-          “It is easy to sit up and take notice, what's difficult is getting up
-          and taking action.”
-        </Advice>
+        <Advice>"{advice?.slip.advice}"</Advice>
         <img src="/images/pattern-divider-desktop.svg" alt="" />
         <Dice>
           <img src="/images/icon-dice.svg" alt="" />
